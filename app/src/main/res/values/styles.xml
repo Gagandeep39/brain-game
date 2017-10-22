@@ -1,0 +1,20 @@
+<resources xmlns:android="http://schemas.android.com/tools">
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <!--<item name="colorPrimary">@color/colorPrimary</item>-->
+        <!--<item name="colorPrimaryDark">@color/colorPrimaryDark</item>-->
+        <item name="colorPrimaryDark">@color/darkBlack</item>
+
+        <!--<item name="colorAccent">@color/colorAccent</item>-->
+    </style>
+    <style name="ripple1">
+        <item name="android:colorControlHighlight">#ffeeeeee</item>
+    </style>
+    <style name="anim">
+        <item name="android:background">?attr/selectableItemBackground</item>
+        <item name="android:theme">@style/ripple1</item>
+    </style>
+
+</resources>
