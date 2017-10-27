@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:id="@+id/mainLayout"
     android:layout_height="match_parent"
     tools:context="com.moon.gagandeep.math.MainActivity">
 
@@ -118,63 +119,119 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textViewExpression">
 
-            <Button
-                android:id="@+id/buttonAnswer"
+            <android.support.v7.widget.CardView
+                android:elevation="50sp"
+                app:cardCornerRadius="16sp"
+                android:background="@drawable/rounded"
+                android:id="@+id/cardView1"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:layout_margin="8sp"
                 android:layout_marginTop="8dp"
-                android:background="@drawable/ripple"
-                android:onClick="chooseAnswer"
-                android:tag="0"
-                android:text="3"
-                app:layout_constraintBottom_toTopOf="@+id/buttonAnswer3"
-                app:layout_constraintEnd_toStartOf="@+id/buttonAnswer2"
+                app:layout_constraintBottom_toTopOf="@+id/cardView3"
+                app:layout_constraintEnd_toStartOf="@+id/cardView2"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent" >
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:id="@+id/frameLayout1"
+                    android:layout_height="match_parent">
+                <Button
+                    android:background="@drawable/ripple"
+                    android:onClick="chooseAnswer"
+                    android:tag="0"
+                    android:text="3"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/buttonAnswer"/>
+                </FrameLayout>
+            </android.support.v7.widget.CardView>
 
-            <Button
-                android:id="@+id/buttonAnswer2"
+            <android.support.v7.widget.CardView
+                android:elevation="50sp"
+                app:cardCornerRadius="16sp"
+                android:background="@drawable/rounded"
+                android:id="@+id/cardView2"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:layout_margin="8sp"
                 android:layout_marginTop="8dp"
-                android:background="@drawable/ripple"
-                android:onClick="chooseAnswer"
-                android:tag="1"
-                android:text="3"
-                app:layout_constraintBottom_toTopOf="@+id/buttonAnswer4"
+                app:layout_constraintBottom_toTopOf="@+id/cardView4"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/buttonAnswer"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintStart_toEndOf="@+id/cardView1"
+                app:layout_constraintTop_toTopOf="parent" >
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:id="@+id/frameLayout2"
+                    android:layout_height="match_parent">
+                <Button
+                    android:layout_width="match_parent"
+                    android:id="@+id/buttonAnswer2"
+                    android:onClick="chooseAnswer"
+                    android:tag="1"
+                    android:text="3"
+                    android:background="@drawable/ripple"
+                    android:layout_height="match_parent" />
 
-            <Button
-                android:id="@+id/buttonAnswer3"
+
+                </FrameLayout>
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                android:elevation="50sp"
+                app:cardCornerRadius="16sp"
+                android:background="@drawable/rounded"
+                android:id="@+id/cardView3"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:layout_margin="8sp"
-                android:background="@drawable/ripple"
-                android:onClick="chooseAnswer"
-                android:tag="2"
-                android:text="3"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/buttonAnswer4"
+                app:layout_constraintEnd_toStartOf="@+id/cardView4"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/buttonAnswer" />
+                app:layout_constraintTop_toBottomOf="@+id/cardView1" >
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:id="@+id/frameLayout3"
+                    android:layout_height="match_parent">
+                <Button
+                    android:background="@drawable/ripple"
+                    android:tag="2"
+                    android:text="3"
+                    android:onClick="chooseAnswer"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/buttonAnswer3"/>
+                </FrameLayout>
+            </android.support.v7.widget.CardView>
 
-            <Button
-                android:id="@+id/buttonAnswer4"
+            <android.support.v7.widget.CardView
+                android:id="@+id/cardView4"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:layout_margin="8sp"
-                android:background="@drawable/ripple"
-                android:onClick="chooseAnswer"
-                android:tag="3"
-                android:text="3"
+                android:background="@drawable/rounded"
+                android:elevation="50sp"
+                app:cardCornerRadius="16sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/buttonAnswer3"
-                app:layout_constraintTop_toBottomOf="@+id/buttonAnswer2" />
+                app:layout_constraintStart_toEndOf="@+id/cardView3"
+                app:layout_constraintTop_toBottomOf="@+id/cardView2" >
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:id="@+id/frameLayout4"
+                    android:layout_height="match_parent">
+                    <Button
+                        android:background="@drawable/ripple"
+                        android:onClick="chooseAnswer"
+                        android:tag="3"
+                        android:text="3"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:id="@+id/buttonAnswer4"/>
+
+
+                </FrameLayout>
+            </android.support.v7.widget.CardView>
 
         </android.support.constraint.ConstraintLayout>
 

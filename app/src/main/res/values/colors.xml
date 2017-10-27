@@ -9,4 +9,8 @@
     <color name="green">#00ff00</color>
     <color name="pure_white">#ffffff</color>
     <color name="lightGrey">#555555</color>
+    <color name="red_custom">#d50000</color>
+    <color name="blue_custom">#311b92</color>
+    <color name="green_custom">#00c853</color>
+    <color name="yellow_custom">#ffe100</color>
 </resources>
