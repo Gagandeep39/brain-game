@@ -1,15 +1,14 @@
 package com.moon.gagandeep.math;
 
+import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -236,6 +235,8 @@ public class MainActivity extends AppCompatActivity {
         randomColor = new Random();
         colorRandom = randomColor.nextInt(7);
         colorCounter =1;
+        startButton.setBackgroundResource(R.drawable.ripple);
+        playAgainButton.setBackgroundResource(R.drawable.ripple);
         gameLayout.setBackgroundColor(getResources().getColor(colorArray[colorRandom]));
         homeLayout.setBackgroundColor(getResources().getColor(colorArray[colorRandom]));
         buttonAnswer0.setBackgroundResource(R.drawable.ripple_color);
@@ -273,6 +274,10 @@ public class MainActivity extends AppCompatActivity {
         textViewScore.setTextColor(getResources().getColor(android.R.color.white));
         textViewSum.setTextColor(getResources().getColor(android.R.color.white));
         textViewResult2.setTextColor(getResources().getColor(android.R.color.white));
+        frameLayout1.setBackgroundColor(getResources().getColor(R.color.lightBlack));
+        frameLayout2.setBackgroundColor(getResources().getColor(R.color.lightBlack));
+        frameLayout3.setBackgroundColor(getResources().getColor(R.color.lightBlack));
+        frameLayout4.setBackgroundColor(getResources().getColor(R.color.lightBlack));
         colorCounter=0;
 
     }
@@ -296,6 +301,10 @@ public class MainActivity extends AppCompatActivity {
         textViewResult2.setTextColor(getResources().getColor(android.R.color.black));
         textViewScore.setTextColor(getResources().getColor(R.color.darkBlack));
         textViewTime.setTextColor(getResources().getColor(R.color.darkBlack));
+        frameLayout1.setBackgroundColor(getResources().getColor(R.color.pure_white));
+        frameLayout2.setBackgroundColor(getResources().getColor(R.color.pure_white));
+        frameLayout3.setBackgroundColor(getResources().getColor(R.color.pure_white));
+        frameLayout4.setBackgroundColor(getResources().getColor(R.color.pure_white));
         colorCounter=0;
     }
 }
