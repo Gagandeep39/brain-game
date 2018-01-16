@@ -44,6 +44,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    //edfrgtyhjukisaasgh
     private void generateColors() {
 
         colorArray[0] = android.R.color.holo_blue_bright;
