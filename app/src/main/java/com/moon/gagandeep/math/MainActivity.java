@@ -1,14 +1,14 @@
 package com.moon.gagandeep.math;
 
+import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.FrameLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -18,17 +18,23 @@ public class MainActivity extends AppCompatActivity {
     Button buttonAnswer0, buttonAnswer1, buttonAnswer2, buttonAnswer3;
     TextView textViewTime, textViewResult, textViewScore, textViewSum, textViewResult2;
     TextView whiteCircle, blackCircle, colorCircle;
-    ConstraintLayout gameLayout, homeLayout;
+    ConstraintLayout gameLayout, homeLayout, mainLayout;
+    FrameLayout frameLayout1, frameLayout2, frameLayout3, frameLayout4, frameLayout5;
     int correctAnswerLocation;
     int score = 0;
     int count = 0;
     int numberOfQuestions = 0;
     int chooseCount=0;
+    int[] colorArray = new int[15];
+    int colorCounter=1;
+    int colorRandom;
+    Random randomColor;
     ArrayList<Integer> answers = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        generateColors();
         setContentView(R.layout.activity_main);
         findViews();
         whiteTheme();
@@ -36,6 +42,23 @@ public class MainActivity extends AppCompatActivity {
         generateQuestions();
 
 
+    }
+
+    //edfrgtyhjukisaasgh
+    private void generateColors() {
+
+        colorArray[0] = android.R.color.holo_blue_bright;
+        colorArray[1]  = android.R.color.holo_red_dark;
+        colorArray[2] = android.R.color.holo_blue_bright;
+        colorArray[3] = android.R.color.holo_green_dark;
+        colorArray[4] = android.R.color.holo_orange_light;
+        colorArray[5] = R.color.colorPrimary;
+        colorArray[6] = android.R.color.holo_purple;
+        colorArray[7] = android.R.color.holo_red_light;
+        colorArray[8] = android.R.color.holo_blue_dark;
+        colorArray[9] = android.R.color.holo_purple;
+        colorArray[10] = R.color.colorPrimary;
+        colorArray[11] = R.color.colorAccent;
     }
 
     private void generateQuestions() {
@@ -120,14 +143,31 @@ public class MainActivity extends AppCompatActivity {
         textViewSum = findViewById(R.id.textViewExpression);
         gameLayout = findViewById(R.id.gameLayout);
         homeLayout = findViewById(R.id.homeLayout);
+        mainLayout = findViewById(R.id.mainLayout);
         textViewResult2 = findViewById(R.id.textViewResult2);
         whiteCircle = findViewById(R.id.textViewWhite);
         blackCircle = findViewById(R.id.textViewBlack);
         colorCircle = findViewById(R.id.textViewColor);
+        frameLayout1 = findViewById(R.id.frameLayout1);
+        frameLayout2 = findViewById(R.id.frameLayout2);
+        frameLayout3 = findViewById(R.id.frameLayout3);
+        frameLayout4 = findViewById(R.id.frameLayout4);
+        //frameLayout5 = findViewById(R.id.frameLayout5);
 
     }
 
     public void chooseAnswer(View view){
+        if(colorCounter!=0){
+            randomColor = new Random();
+            colorRandom = randomColor.nextInt(7);
+            gameLayout.setBackgroundColor(getResources().getColor(colorArray[colorRandom]));
+            homeLayout.setBackgroundColor(getResources().getColor(colorArray[colorRandom]));
+            frameLayout1.setBackgroundColor(getResources().getColor(colorArray[colorRandom+1]));
+            frameLayout2.setBackgroundColor(getResources().getColor(colorArray[colorRandom+2]));
+            frameLayout3.setBackgroundColor(getResources().getColor(colorArray[colorRandom+3]));
+            frameLayout4.setBackgroundColor(getResources().getColor(colorArray[colorRandom+4]));
+        }
+
         chooseCount++;
         Log.i("TAG", "chooseAnswer: " + view.getTag());
         if (view.getTag().toString().equals(Integer.toString(correctAnswerLocation))){
@@ -186,13 +226,31 @@ public class MainActivity extends AppCompatActivity {
                 colorCircle.setVisibility(View.VISIBLE);
                 count = 0;
                 chooseCount = 0;
+                //colorCounter=0;
 
             }
         }.start();
         generateQuestions();
     }
     private void colorTheme() {
-        Toast.makeText(this, "In Progress...", Toast.LENGTH_SHORT).show();
+        randomColor = new Random();
+        colorRandom = randomColor.nextInt(7);
+        colorCounter =1;
+        startButton.setBackgroundResource(R.drawable.ripple);
+        playAgainButton.setBackgroundResource(R.drawable.ripple);
+        gameLayout.setBackgroundColor(getResources().getColor(colorArray[colorRandom]));
+        homeLayout.setBackgroundColor(getResources().getColor(colorArray[colorRandom]));
+        buttonAnswer0.setBackgroundResource(R.drawable.ripple_color);
+        buttonAnswer1.setBackgroundResource(R.drawable.ripple_color);
+        buttonAnswer2.setBackgroundResource(R.drawable.ripple_color);
+        buttonAnswer3.setBackgroundResource(R.drawable.ripple_color);
+        frameLayout1.setBackgroundColor(getResources().getColor(colorArray[colorRandom+1]));
+        frameLayout2.setBackgroundColor(getResources().getColor(colorArray[colorRandom+2]));
+        frameLayout3.setBackgroundColor(getResources().getColor(colorArray[colorRandom+2]));
+        frameLayout4.setBackgroundColor(getResources().getColor(colorArray[colorRandom+3]));
+        //frameLayout1.setBackgroundColor(getResources().getColor(R.color.colorAccent));
+        //Toast.makeText(this, "In Progress..." + colorRandom, Toast.LENGTH_SHORT).show();
+
 
 
     }
@@ -217,6 +275,11 @@ public class MainActivity extends AppCompatActivity {
         textViewScore.setTextColor(getResources().getColor(android.R.color.white));
         textViewSum.setTextColor(getResources().getColor(android.R.color.white));
         textViewResult2.setTextColor(getResources().getColor(android.R.color.white));
+        frameLayout1.setBackgroundColor(getResources().getColor(R.color.lightBlack));
+        frameLayout2.setBackgroundColor(getResources().getColor(R.color.lightBlack));
+        frameLayout3.setBackgroundColor(getResources().getColor(R.color.lightBlack));
+        frameLayout4.setBackgroundColor(getResources().getColor(R.color.lightBlack));
+        colorCounter=0;
 
     }
 
@@ -239,5 +302,10 @@ public class MainActivity extends AppCompatActivity {
         textViewResult2.setTextColor(getResources().getColor(android.R.color.black));
         textViewScore.setTextColor(getResources().getColor(R.color.darkBlack));
         textViewTime.setTextColor(getResources().getColor(R.color.darkBlack));
+        frameLayout1.setBackgroundColor(getResources().getColor(R.color.pure_white));
+        frameLayout2.setBackgroundColor(getResources().getColor(R.color.pure_white));
+        frameLayout3.setBackgroundColor(getResources().getColor(R.color.pure_white));
+        frameLayout4.setBackgroundColor(getResources().getColor(R.color.pure_white));
+        colorCounter=0;
     }
 }
